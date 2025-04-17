@@ -20,9 +20,9 @@ export const loginUser = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     // credentials = { email, password }
     try {
-      // V V V CHANGE THIS LINE V V V
-      const response = await axios.post("/login", credentials); // REMOVED /api/auth prefix
-      // ^ ^ ^ CHANGE THIS LINE ^ ^ ^
+      // V V V FIX: Use relative path because baseURL is set V V V
+      const response = await axios.post("/login", credentials);
+      // ^ ^ ^ FIX: Use relative path because baseURL is set ^ ^ ^
 
       const { token, user } = response.data;
 
@@ -48,15 +48,15 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-// --- Async Thunk for Registration (Optional, but good practice) ---
+// --- Async Thunk for Registration ---
 export const registerUser = createAsyncThunk(
   "auth/registerUser",
   async (userData, { rejectWithValue }) => {
     // userData = { username, email, password, address, phone }
     try {
-      // V V V CHANGE THIS LINE V V V
-      const response = await axios.post("/register", userData); // REMOVED /api/auth prefix
-      // ^ ^ ^ CHANGE THIS LINE ^ ^ ^
+      // V V V FIX: Use relative path because baseURL is set V V V
+      const response = await axios.post("/register", userData);
+      // ^ ^ ^ FIX: Use relative path because baseURL is set ^ ^ ^
 
       // Registration successful
       return response.data.message; // e.g., "User registered successfully"
@@ -133,3 +133,10 @@ const authSlice = createSlice({
 // --- Export synchronous actions and the reducer ---
 export const { logout, clearAuthError } = authSlice.actions;
 export default authSlice.reducer;
+
+// --- Selectors ---
+export const selectAuthToken = (state) => state.auth.token;
+export const selectAuthUser = (state) => state.auth.user;
+export const selectIsAuthenticated = (state) => state.auth.isAuthenticated;
+export const selectAuthLoading = (state) => state.auth.isLoading; // Added loading selector
+export const selectAuthError = (state) => state.auth.error; // Added error selector

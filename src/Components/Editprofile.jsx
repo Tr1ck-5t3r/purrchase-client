@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios"; // Using axios for cleaner API calls
+import axios from "axios"; 
 
 const API_BASE_URL = "http://localhost:5000"; // Your backend base URL
 
@@ -10,13 +10,12 @@ function EditProfile() {
     address: "",
     phone: "",
   });
-  const [initialUserData, setInitialUserData] = useState({}); // To compare for changes
+  const [initialUserData, setInitialUserData] = useState({}); 
   const [loading, setLoading] = useState(false);
-  const [fetchLoading, setFetchLoading] = useState(true); // Loading state for initial fetch
+  const [fetchLoading, setFetchLoading] = useState(true); 
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
-  // --- Fetch current user profile data on component mount ---
   useEffect(() => {
     const fetchUserProfile = async () => {
       setFetchLoading(true);
@@ -36,8 +35,7 @@ function EditProfile() {
           },
         });
 
-        // Assuming the GET /profile returns { user: { ... } } like the PUT response
-        const currentUserData = response.data.user || response.data; // Adjust based on your GET endpoint's response structure
+        const currentUserData = response.data.user || response.data; 
         const profileData = {
           username: currentUserData.username || "",
           email: currentUserData.email || "",
@@ -45,14 +43,13 @@ function EditProfile() {
           phone: currentUserData.phone || "",
         };
         setUserData(profileData);
-        setInitialUserData(profileData); // Store initial data
+        setInitialUserData(profileData); 
       } catch (err) {
         console.error("Error fetching profile:", err);
         if (err.response) {
           // Handle specific backend errors (e.g., 401 Unauthorized, 404 Not Found)
           if (err.response.status === 401) {
             setError("Unauthorized. Please log in again.");
-            // Optional: redirect to login page here
           } else {
             setError(
               err.response.data.error || "Failed to fetch profile data."
@@ -67,21 +64,17 @@ function EditProfile() {
     };
 
     fetchUserProfile();
-  }, []); // Empty dependency array means this runs once on mount
-
-  // --- Handle input changes ---
+  }, []); 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
-    // Clear errors/success when user starts typing
     setError("");
     setSuccessMessage("");
   };
 
-  // --- Handle form submission ---
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission
     setError("");
@@ -94,9 +87,6 @@ function EditProfile() {
       setLoading(false);
       return;
     }
-
-    // Prepare data for PUT request - only send changed fields (optional but good practice)
-    // Or just send all fields as the backend handles it
     const dataToUpdate = {
       username: userData.username,
       email: userData.email,
@@ -104,7 +94,6 @@ function EditProfile() {
       phone: userData.phone,
     };
 
-    // Basic frontend validation (backend handles more robustly)
     if (!dataToUpdate.username || !dataToUpdate.email) {
       setError("Username and Email are required.");
       setLoading(false);
@@ -136,7 +125,6 @@ function EditProfile() {
       setUserData(updatedProfile);
       setInitialUserData(updatedProfile); // Update initial data to reflect the successful save
 
-      // Optional: Clear success message after a few seconds
       setTimeout(() => setSuccessMessage(""), 5000);
     } catch (err) {
       console.error("Error updating profile:", err);
@@ -144,9 +132,7 @@ function EditProfile() {
         // Display specific error from backend
         setError(err.response.data.error || "Failed to update profile.");
         if (err.response.data.details) {
-          // Optionally display validation details
           console.error("Validation Details:", err.response.data.details);
-          // You could format these details for the user if needed
         }
       } else {
         setError("Network error or server unavailable.");

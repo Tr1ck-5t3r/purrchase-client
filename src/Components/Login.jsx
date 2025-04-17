@@ -10,7 +10,7 @@ function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { isLoading, error, isAuthenticated, user } = useSelector(
+  const { isLoading, error, isAuthenticated } = useSelector(
     (state) => state.auth
   );
 

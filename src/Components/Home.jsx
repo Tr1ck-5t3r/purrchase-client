@@ -3,15 +3,8 @@ import pawpatterntwoc from "../Assets/pawpatterntwoc.png";
 import pawpatterntwo from "../Assets/pawpatterntwo.png";
 import { Link } from "react-router-dom";
 import FeaturedPetsCarousel from "./FeaturedCarousel";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
 
 function Home() {
-    let user = useSelector((state) => state.auth.user);
-    useEffect(() => {
-        console.log(user);
-    },[user]);
-
   return (
     <div className="bg-zinc-900">
       {/* Hero Section */}

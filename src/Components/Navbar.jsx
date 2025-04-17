@@ -25,11 +25,12 @@ function Navbar() {
     About: "/about",
     Find: "/find",
     Gallery: "/gallery",
-
+    ...(isAuthenticated && user ? { Dashboard: "/dashboard" } : {}),
   };
 
+
   return (
-    <div className="fixed w-full z-10 top-0 bg-zinc-900 shadow-md text-slate-300">
+    <div className="fixed w-full z-10 top-0 bg-zinc-900 shadow-md text-slate-300 z-50">
       <nav className="container mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
         {" "}
         {/* Added container & responsive padding */}
@@ -59,9 +60,8 @@ function Navbar() {
             <>
               <Link
                 to="/dashboard"
-                className="flex items-center space-x-2 group"
+                className="flex space-between items-center space-x-2 group"
               >
-                {" "}
                 {/* Link profile pic/name */}
                 <img
                   src={
@@ -69,7 +69,7 @@ function Navbar() {
                     `https://eu.ui-avatars.com/api/?name=${user.username}&size=128&background=random`
                   } // Fallback avatar
                   alt={user.username}
-                  className="w-8 h-8 rounded-full border-2 border-transparent group-hover:border-orange-500 transition"
+                  className="w-8 h-8 rounded-full ml-2 border-2 border-transparent group-hover:border-orange-500 transition"
                 />
               </Link>
               <button

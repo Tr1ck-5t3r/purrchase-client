@@ -16,7 +16,6 @@ function FeaturedPetsCarousel() {
       .then((data) => setPets(data.slice(0, 10))) // Take only first 10 pets
       .catch((error) => console.error("Error fetching pets:", error));
   }, []);
-  console.log("Pets data:", pets); // Debugging
   return (
     <div className="bg-zinc-900 py-16">
       <h2 className="text-center text-slate-300 text-2xl font-MavenPro mb-6">

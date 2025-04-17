@@ -13,13 +13,14 @@ import Login from './Components/Login';
 import Register from './Components/Register';
 import Current from './Components/Current';
 import Editprofile from './Components/Editprofile';
-
+import Wishlist from './Components/Wishlist';
+import PetDetails from './Components/PetDetails';
 
 function App() {
   return (
     <div className="App">
       <div>
-        <Navbar/>
+        <Navbar />
       </div>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -32,6 +33,8 @@ function App() {
         <Route path="/activity" element={<Activity />} />
         <Route path="/current" element={<Current />} />
         <Route path="/edit_profile" element={<Editprofile />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/pet/:id" element={<PetDetails />} />
         <Route path="" element={<Error />} />
       </Routes>
       <div>

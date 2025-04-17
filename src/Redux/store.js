@@ -1,25 +1,20 @@
 // src/redux/store.js
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./authSlice";
-import axios from "axios"; // Import axios here too
+import axios from "axios";
+import wishlistReducer from "./WishlistSlice";
 
-// --- Configure Axios Base URL (Optional but Recommended) ---
- axios.defaults.baseURL = 'http://localhost:5000'; // Or your backend URL
+axios.defaults.baseURL = "http://localhost:5000"; 
 
-// --- Set Initial Axios Header if Token Exists (Handles Refresh) ---
 const token = localStorage.getItem("authToken");
 if (token) {
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 }
-
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    // Add other reducers here if you have more slices
-    // e.g., posts: postsReducer,
+    wishlist: wishlistReducer,
   },
-  // Middleware is automatically included by configureStore (includes thunk)
-  // DevTools Extension is also automatically enabled in development
 });
 
 export default store;
