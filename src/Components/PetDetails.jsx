@@ -49,7 +49,9 @@ function PetDetails() {
       dispatch(clearWishlistError());
       try {
         // Use Axios for consistency if preferred, or keep fetch
-        const response = await axios.get(`http://localhost:5000/find/${id}`); // Use relative path if baseURL is set
+        const response = await axios.get(
+          `https://purrchase-server-production.up.railway.app/find/${id}`
+        ); // Use relative path if baseURL is set
         // const response = await fetch(`http://localhost:5000/find/${id}`); // Or keep fetch
         // if (!response.ok && response.status !== 404) { // Check for fetch
         //   throw new Error(`HTTP error! status: ${response.status}`);

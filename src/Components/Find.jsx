@@ -37,7 +37,9 @@ function Find() {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch("http://localhost:5000/find");
+        const response = await fetch(
+          "https://purrchase-server-production.up.railway.app/find"
+        );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

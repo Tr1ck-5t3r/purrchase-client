@@ -4,7 +4,7 @@ import authReducer from "./authSlice";
 import axios from "axios";
 import wishlistReducer from "./WishlistSlice";
 
-axios.defaults.baseURL = "http://localhost:5000"; 
+axios.defaults.baseURL = "https://purrchase-server-production.up.railway.app/"; 
 
 const token = localStorage.getItem("authToken");
 if (token) {

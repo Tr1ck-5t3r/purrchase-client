@@ -13,7 +13,9 @@ function Gallery() {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch("http://localhost:5000/gallery");
+        const response = await fetch(
+          "https://purrchase-server-production.up.railway.app/gallery"
+        );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
