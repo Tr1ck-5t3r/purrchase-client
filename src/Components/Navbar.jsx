@@ -30,7 +30,7 @@ function Navbar() {
 
 
   return (
-    <div className="fixed w-full z-10 top-0 bg-zinc-900 shadow-md text-slate-300 z-50">
+    <div className="fixed w-full top-0 bg-zinc-900 shadow-md text-slate-300 z-50">
       <nav className="container mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
         {" "}
         {/* Added container & responsive padding */}
