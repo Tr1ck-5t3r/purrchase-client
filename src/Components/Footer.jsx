@@ -106,10 +106,10 @@ function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  to="/profile"
+                  to="/edit_profile"
                   className="font-Quicksand text-sm hover:text-slate-200 transition"
                 >
-                  Profile
+                  Edit Profile
                 </Link>
               </li>
               <li>
@@ -158,7 +158,7 @@ function Footer() {
                   aria-hidden="true"
                 />{" "}
                 {/* Use Icon */}
-                <a href="tel:123-456-7890">123-456-7890</a>{" "}
+                <a href="tel:+91 8438976220">8438976220</a>{" "}
                 {/* Make phone clickable */}
               </li>
               <li className="flex items-start text-sm hover:text-slate-200 transition group">
@@ -182,8 +182,8 @@ function Footer() {
                   aria-hidden="true"
                 />{" "}
                 {/* Use Icon */}
-                <a href="mailto:contact@purrchase.com">
-                  contact@purrchase.com
+                <a href="mailto:tarungovindharaj2003@gmail.com">
+                  tarungovindharaj2003@gmail.com
                 </a>{" "}
                 {/* Make email clickable */}
               </li>

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import FeaturedPetsCarousel from "./FeaturedCarousel";
 import articleimgfour from "../Assets/articleimgfour.png";
 import pawpatterntwoc from "../Assets/pawpatterntwoc.png";
+import { Analytics } from "@vercel/analytics/react";
 import pawpatterntwo from "../Assets/pawpatterntwo.png";
 
 function Home() {
@@ -65,10 +66,10 @@ function Home() {
                 <h2 className="font-MavenPro text-3xl lg:text-4xl font-semibold py-4">
                   {" "}
                   {/* Adjusted font */}
-                  Ready to become a 
+                  Ready to become a
                   <Link to="/find" className="inline-block">
                     <span className="py-1 bg-gradient-to-r from-rose-500 to-orange-500 bg-no-repeat bg-bottom bg-[length:100%_6px] hover:bg-[length:100%_100%] transition-all cursor-pointer">
-                      Pet Parent?
+                      {" "}Pet Parent?
                     </span>
                   </Link>
                 </h2>
@@ -151,10 +152,9 @@ function Home() {
               >
                 <p className="italic text-slate-400 text-sm mb-3">
                   {" "}
-                  {/* Adjusted text size/color */}
-                  "Finding {i % 2 === 0 ? "Luna" : "Rocky"} on Purrchase was the
+                  `Finding {i % 2 === 0 ? "Luna" : "Rocky"} on Purrchase was the
                   best decision! The process was so smooth, and now our home is
-                  filled with so much more joy. Highly recommend!"
+                  filled with so much more joy. Highly recommend!``
                 </p>
                 <span className="block text-right font-semibold text-orange-400">
                   - {i % 2 === 0 ? "Sarah K." : "Mike P."} {/* Example names */}
@@ -162,6 +162,7 @@ function Home() {
               </div>
             ))}
         </div>
+        <Analytics />
       </div>
     </div>
   );

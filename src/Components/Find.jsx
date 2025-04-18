@@ -1,11 +1,10 @@
-// frontend/src/Components/Find.jsx
-import React, { useEffect, useState, useCallback, useMemo } from "react";
+
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { AdvancedImage } from "@cloudinary/react";
 import { auto } from "@cloudinary/url-gen/actions/resize";
 import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 function Find() {
   const [pets, setPets] = useState([]);
