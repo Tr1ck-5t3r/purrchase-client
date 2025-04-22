@@ -390,7 +390,7 @@ function PetDetails() {
                     Adoption Fee:
                   </span>
                   <span className="font-semibold text-lg text-orange-400">
-                    ${pet.price.toLocaleString()}
+                    ₹{pet.price.toLocaleString()}
                   </span>
                 </li>
               </ul>

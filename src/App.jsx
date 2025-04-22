@@ -1,19 +1,28 @@
-import './App.css';
-import Navbar from './Components/Navbar';
-import { Routes, Route } from 'react-router-dom';
-import Home from './Components/Home';
-import About from './Components/About';
-import Find from './Components/Find';
-import NotFound from './Components/NotFound';
-import Gallery from './Components/Gallery';
-import Footer from './Components/Footer';
-import Dashboard from './Components/Dashboard';
-import Login from './Components/Login';
-import Register from './Components/Register';
-import Current from './Components/Current';
-import Editprofile from './Components/Editprofile';
-import Wishlist from './Components/Wishlist';
-import PetDetails from './Components/PetDetails';
+// App.js
+
+import "./App.css";
+import Navbar from "./Components/Navbar";
+import { Routes, Route } from "react-router-dom";
+
+// Public Components
+import Home from "./Components/Home";
+import About from "./Components/About";
+import Find from "./Components/Find";
+import Gallery from "./Components/Gallery";
+import PetDetails from "./Components/PetDetails";
+import Login from "./Components/Login";
+import Register from "./Components/Register";
+import NotFound from "./Components/NotFound";
+
+// Protected Components
+import Dashboard from "./Components/Dashboard";
+import Current from "./Components/Current"; // Assuming requires login
+import Editprofile from "./Components/Editprofile"; // Assuming requires login
+import Wishlist from "./Components/Wishlist"; // Assuming requires login
+
+
+import Footer from "./Components/Footer";
+import ProtectedRoute from "./Components/ProtectedRoutes"; // Adjust path if necessary
 
 function App() {
   return (
@@ -28,11 +37,13 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/current" element={<Current />} />
-        <Route path="/edit_profile" element={<Editprofile />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/pet/:id" element={<PetDetails />} />
+        <Route path="/pet/:id" element={<PetDetails />} />{" "}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/current" element={<Current />} />
+          <Route path="/edit_profile" element={<Editprofile />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
       <div>

@@ -109,7 +109,7 @@ function Gallery() {
                         {" "}
                         {/* Pushes price/status down */}
                         <p className="text-base font-semibold text-orange-400">
-                          ${pet.price.toLocaleString()}
+                          ₹{pet.price.toLocaleString()}
                         </p>
                         <span
                           className={`text-xs font-medium px-2 py-0.5 rounded-full ${

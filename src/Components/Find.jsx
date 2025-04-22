@@ -206,7 +206,7 @@ function Find() {
               >
                 Max Price:{" "}
                 <span className="font-semibold text-orange-400">
-                  ${selectedMaxPrice.toLocaleString()}
+                  ₹{selectedMaxPrice.toLocaleString()}
                 </span>
               </label>
               <input
@@ -221,8 +221,8 @@ function Find() {
                 className="w-full h-2 bg-zinc-600 rounded-lg appearance-none cursor-pointer range-lg dark:bg-zinc-700 accent-orange-500"
               />
               <div className="flex justify-between text-xs text-gray-400 mt-1">
-                <span>$0</span>
-                <span>${maxPrice.toLocaleString()}</span>
+                <span>₹0</span>
+                <span>₹{maxPrice.toLocaleString()}</span>
               </div>
             </div>
             {/* 4. Availability Toggle */}
@@ -290,7 +290,7 @@ function Find() {
                       </p>
                       <div className="mt-auto pt-2 border-t border-zinc-700/50 flex justify-between items-center">
                         <p className="text-base font-semibold text-orange-400">
-                          ${pet.price.toLocaleString()}
+                          ₹{pet.price.toLocaleString()}
                         </p>
                         <span
                           className={`text-xs font-medium px-2 py-0.5 rounded-full ${
